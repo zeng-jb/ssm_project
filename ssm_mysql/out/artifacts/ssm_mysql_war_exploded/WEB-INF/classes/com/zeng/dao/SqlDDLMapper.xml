@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zeng.dao.SqlDDLMapper">
+
+    <!--创建表-->
+    <!--<update id="createTable" >-->
+    <!--    create table testtable(-->
+    <!--        id int,-->
+    <!--        name varchar(255),-->
+    <!--        salry float-->
+    <!--    );-->
+    <!--</update>-->
+    <update id="createTable" parameterType="String">
+        ${sql}
+    </update>
+
+    <!--删除表-->
+    <update id="delTable" parameterType="String">
+        drop table if exists ${tableName};
+    </update>
+
+    <!--判断表是否在-->
+    <select id="judgeTable" parameterType="String" resultType="int">
+        select count(*) from information_schema.TABLES where table_name = #{tableName}
+    </select>
+
+    <!--<select id="getStudentAndScore" resultMap="StudentAndS">-->
+    <!--    select distinct sname , cname-->
+    <!--    from STUDENTS , CHOICES ,COURSES-->
+    <!--    where CHOICES.sid = STUDENTS.sid and COURSES.cid = CHOICES.cid-->
+    <!--    limit 100-->
+    <!--</select>-->
+    <!--<resultMap id="StudentAndS" type="CHOICES">-->
+    <!--    <result property="sid" column="sid"/>-->
+    <!--    <collection property=""-->
+    <!--</resultMap>-->
+</mapper>

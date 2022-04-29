@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--MyBatis的核心配置文件-->
+    <!--配置数据源，别名，交给spring去做-->
+    <typeAliases>
+        <package name="com.zeng.pojo"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="com/zeng/dao/BookMapper.xml"/>
+        <mapper resource="com/zeng/dao/SqlMapper.xml"/>
+    </mappers>
+
+</configuration>

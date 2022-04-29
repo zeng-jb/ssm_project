@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    无参构造实例化匹配-->
+<!--    <bean id="user" class="com.zeng.pojo.User">-->
+<!--        <property name="name" value="zengjiabin"/>-->
+<!--    </bean>-->
+
+<!--    构造函数参数索引，下标创建-->
+<!--    <bean id="user" class="com.zeng.pojo.User">-->
+<!--        <constructor-arg index="0" value="zengjiabin最帅"/>-->
+<!--    </bean>-->
+
+<!--    构造函数类型匹配。不建议使用-->
+<!--    <bean id="user" class="com.zeng.pojo.User">-->
+<!--        <constructor-arg type="java.lang.String" value="我是曾嘉彬"/>-->
+<!--    </bean>-->
+
+<!--直接通过参数名构造-->
+    <bean id="user" class="com.zeng.pojo.User">
+        <constructor-arg name="name" value="我是zjb"/>
+    </bean>
+
+
+
+    <bean id="usert" class="com.zeng.pojo.UserT">
+        <property name="name" value="zenadada"/>
+    </bean>
+
+    <alias name="user" alias="userdasd"/>
+
+</beans>

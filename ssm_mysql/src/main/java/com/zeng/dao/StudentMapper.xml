@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zeng.dao.StudentMapper">
+    <sql id="all_collum">
+        sid,sname,age,sex
+    </sql>
+    <!--增加一名学生-->
+    <insert id="addStudent" parameterType="Students">
+        insert into students (<include refid="all_collum"/>)
+        values (#{sid},#{sname},#{age},#{sex})
+    </insert>
+
+    <!--删除一名学生-->
+    <delete id="delStudent" parameterType="String">
+        delete from students where sid = #{sid}
+    </delete>
+
+    <!--修改学生信息-->
+    <update id="updateStudent" parameterType="Students">
+        update students set sname = #{sname},age = #{age},sex = #{sex}
+        where sid = #{sid}
+    </update>
+
+    <!--查询所有学生信息-->
+    <select id="queryAllStudent" resultType="students">
+        select * from students
+    </select>
+
+    <!--根据学生学号查询-->
+    <select id="queryStudentBySid" resultType="students">
+        select  * from  students where sid = #{sid}
+    </select>
+
+    <!--choose动态sql-->
+    <select id="queryStudentChoose" parameterType="map" resultType="Students">
+        select * from students
+        <where>
+            <choose>
+                <when test="sid != null">
+                    sid = #{sid}
+                </when>
+                <when test="sname != null">
+                    sname = #{sname}
+                </when>
+                <when test="age != null">
+                    age = #{age}
+                </when>
+                <otherwise>
+                    sex = #{sex}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+</mapper>

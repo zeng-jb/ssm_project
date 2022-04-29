@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--MyBatis的核心配置文件-->
+    <!--配置数据源，别名，交给spring去做-->
+
+    <mappers>
+        <mapper resource="com/zeng/dao/Mapper.xml"/>
+    </mappers>
+
+</configuration>
